@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هلا فيك في MAKZO SCRIPTS | محاكيات وسكربتات روبلوكس الرسمية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        robloxDark: '#0b0e14',
+                        robloxCard: '#131826',
+                        robloxCardHover: '#1c2338',
+                        robloxRed: '#e53935',
+                        robloxBlue: '#2196f3',
+                        robloxNeon: '#00e676',
+                        robloxPurple: '#7c4dff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0b0e14;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0e14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e53935;
+            border-radius: 4px;
+        }
+        .neon-glow-red {
+            box-shadow: 0 0 25px rgba(229, 57, 53, 0.45);
+        }
+        .neon-glow-blue {
+            box-shadow: 0 0 25px rgba(33, 150, 243, 0.45);
+        }
+        .neon-text {
+            text-shadow: 0 0 12px rgba(229, 57, 53, 0.7), 0 0 25px rgba(229, 57, 53, 0.4);
+        }
+        .bg-grid {
+            background-image: radial-gradient(rgba(229, 57, 53, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .glass-header {
+            background: rgba(11, 14, 20, 0.88);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-robloxDark bg-grid min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <header class="sticky top-0 z-50 glass-header border-b border-red-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-red-600 via-purple-600 to-blue-600 flex items-center justify-center neon-glow-red animate-pulse">
+                    <i class="fa-solid fa-cube text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-blue-400">
+                        MAKZO SCRIPTS <span class="text-xs px-2 py-0.5 rounded bg-red-950 text-red-300 border border-red-500/30">PRO HUB</span>
+                    </h1>
+                    <p class="text-xs text-gray-400">محرك البحث الذكي وسكربتات روبلوكس الرسمية</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-6 space-x-reverse font-semibold">
+                <a href="#home" class="text-red-500 hover:text-red-400 transition flex items-center gap-2"><i class="fa-solid fa-house"></i> الرئيسية</a>
+                <a href="#executors" class="text-gray-300 hover:text-red-500 transition flex items-center gap-2"><i class="fa-solid fa-terminal"></i> المحاكيات</a>
+                <a href="#scripts" class="text-gray-300 hover:text-red-500 transition flex items-center gap-2"><i class="fa-solid fa-code"></i> مكتبة السكربتات</a>
+                <a href="#community" class="text-gray-300 hover:text-red-500 transition flex items-center gap-2"><i class="fa-solid fa-users"></i> مجتمع السكربتات</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="openAuthModal()" class="px-4 py-2.5 rounded-xl bg-robloxCard border border-red-500/40 text-white text-xs font-bold hover:bg-red-950/40 transition flex items-center gap-2">
+                    <i class="fa-solid fa-user-lock text-red-400"></i> تسجيل الدخول
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative py-16 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-red-950/20 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold mb-6 animate-pulse">
+                <i class="fa-solid fa-bolt text-red-400"></i> هلا فيك في MAKZO SCRIPTS • أرشيف سكربتات روبلوكس التفاعلي (محفوظ للأبد)
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black mb-6 leading-tight">
+                ابحث عن أي لعبة روبلوكس وسيظهر لك <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-400 neon-text">جميع السكربتات الخاصة بها فوراً!</span>
+            </h2>
+            <p class="text-gray-300 text-sm sm:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
+                موقعك الأول لجلب أحدث سكربتات روبلوكس الحصرية مع دعم كامل لإضافة سكربتك الخاص وحفظه للأبد مع تاريخ النزول.
+            </p>
+        </div>
+    </section>
+
+    <!-- Executors Section -->
+    <section id="executors" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <div class="mb-8">
+            <h3 class="text-2xl sm:text-3xl font-black flex items-center gap-3">
+                <i class="fa-solid fa-terminal text-red-500"></i> المحاكيات الرسمية (للكمبيوتر والجوال)
+            </h3>
+            <p class="text-gray-400 text-sm mt-1">حمل المحاكي المناسب لتشغيل السكربتات بأمان وثبات</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- PC Executors -->
+            <div class="bg-robloxCard border border-red-900/50 rounded-2xl p-6 sm:p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-red-600/20 text-red-500 flex items-center justify-center text-3xl neon-glow-red">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded bg-red-950 text-red-300 text-xs font-bold border border-red-500/30">Windows PC</span>
+                        <h4 class="text-xl font-bold text-white mt-1">محاكيات الكمبيوتر</h4>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-robloxDark p-4 rounded-xl border border-red-900/30 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-bold text-white flex items-center gap-2">Solara Executor <span class="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400">مستقر</span></h5>
+                            <p class="text-xs text-gray-400 mt-1">يدعم تشغيل أغلب السكربتات على الكمبيوتر.</p>
+                        </div>
+                        <a href="https://getsolara.dev" target="_blank" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center gap-1.5 neon-glow-red">
+                            <i class="fa-solid fa-download"></i> التحميل
+                        </a>
+                    </div>
+                    <div class="bg-robloxDark p-4 rounded-xl border border-red-900/30 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-bold text-white flex items-center gap-2">Xeno Executor <span class="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">سريع</span></h5>
+                            <p class="text-xs text-gray-400 mt-1">مجاني وسلس يتوافق مع التحديثات الأخيرة.</p>
+                        </div>
+                        <a href="https://xeno.onl" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-download"></i> التحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Executors -->
+            <div class="bg-robloxCard border border-blue-900/50 rounded-2xl p-6 sm:p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-3xl neon-glow-blue">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded bg-blue-950 text-blue-300 text-xs font-bold border border-blue-500/30">Android & iOS</span>
+                        <h4 class="text-xl font-bold text-white mt-1">محاكيات الجوال</h4>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-robloxDark p-4 rounded-xl border border-blue-900/30 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-bold text-white flex items-center gap-2">Delta Executor <span class="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400">الأكثر طلباً</span></h5>
+                            <p class="text-xs text-gray-400 mt-1">أفضل محاكي جوال للاندرويد والايفون.</p>
+                        </div>
+                        <a href="https://deltaexploits.gg" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-download"></i> التحميل
+                        </a>
+                    </div>
+                    <div class="bg-robloxDark p-4 rounded-xl border border-blue-900/30 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-bold text-white flex items-center gap-2">Codex Executor <span class="text-xs px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">ممتاز</span></h5>
+                            <p class="text-xs text-gray-400 mt-1">أداء قوي واجهة مستخدم سلسة.</p>
+                        </div>
+                        <a href="https://codex.lol" target="_blank" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-download"></i> التحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Scripts Search Section -->
+    <main id="scripts" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-grow">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+            <div>
+                <h3 class="text-2xl sm:text-3xl font-black flex items-center gap-3">
+                    <i class="fa-solid fa-magnifying-glass text-red-500"></i> محرك البحث الذكي (أرشيف السكربتات)
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">ابحث عن أي لعبة أو سكربت لتظهر لك النتائج فوراً</p>
+            </div>
+
+            <!-- Search Input Box -->
+            <div class="w-full md:w-96 relative">
+                <input type="text" id="live-search-input" oninput="filterScripts()" placeholder="ابحث عن لعبة أو سكربت (مثال: VR7, هيت بوكس, Blox Fruits)..." class="w-full bg-robloxCard border-2 border-red-500/50 focus:border-red-500 rounded-2xl px-4 py-3.5 pr-12 text-sm text-white placeholder-gray-400 focus:outline-none transition shadow-lg">
+                <i class="fa-solid fa-code absolute right-4 top-4 text-red-500 text-lg"></i>
+            </div>
+        </div>
+
+        <!-- Quick Search Tags -->
+        <div class="flex flex-wrap items-center gap-2 mb-8">
+            <span class="text-xs text-gray-400 font-bold ml-2"><i class="fa-solid fa-fire text-orange-500"></i> بحث سريع شايع:</span>
+            <button onclick="setSearchQuery('VR7')" class="px-3 py-1.5 rounded-xl bg-robloxCard hover:bg-red-950/60 border border-red-500/30 text-xs text-red-300 font-bold transition">أقوى سكربت VR7</button>
+            <button onclick="setSearchQuery('هيت بوكس')" class="px-3 py-1.5 rounded-xl bg-robloxCard hover:bg-red-950/60 border border-red-500/30 text-xs text-red-300 font-bold transition">هيت بوكس</button>
+            <button onclick="setSearchQuery('Blox Fruits')" class="px-3 py-1.5 rounded-xl bg-robloxCard hover:bg-red-950/60 border border-red-500/30 text-xs text-red-300 font-bold transition">Blox Fruits</button>
+            <button onclick="setSearchQuery('Fisch')" class="px-3 py-1.5 rounded-xl bg-robloxCard hover:bg-red-950/60 border border-red-500/30 text-xs text-red-300 font-bold transition">Fisch</button>
+            <button onclick="setSearchQuery('')" class="px-3 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs text-gray-300 font-bold transition">عرض الكل</button>
+        </div>
+
+        <!-- Dynamic Scripts Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="scripts-grid">
+            <!-- Populated by JavaScript dynamically -->
+        </div>
+    </main>
+
+    <!-- Community User Scripts Section -->
+    <section id="community" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full border-t border-red-900/30">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <div>
+                <h3 class="text-2xl sm:text-3xl font-black flex items-center gap-3">
+                    <i class="fa-solid fa-users text-blue-500"></i> سكربتات المجتمع (إضافات الأعضاء المحفوظة للأبد)
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">تصفح السكربتات المضافة من قِبل المستخدمين مع تاريخ النشر بدقة</p>
+            </div>
+            <button onclick="openAddScriptModal()" class="px-5 py-3 rounded-xl bg-gradient-to-r from-red-600 to-blue-600 hover:opacity-90 text-white font-bold text-sm transition flex items-center gap-2 neon-glow-red">
+                <i class="fa-solid fa-plus-circle"></i> ضيف سكربتك الخاص
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="community-scripts-grid">
+            <!-- Populated dynamically -->
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-robloxCard/50 border-y border-red-900/30 my-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-6 rounded-2xl bg-robloxDark border border-red-500/20">
+                <div class="text-3xl sm:text-4xl font-black text-red-400 mb-2">25,000+</div>
+                <p class="text-gray-400 text-sm">عملية نسخ ناجحة</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-robloxDark border border-blue-500/20">
+                <div class="text-3xl sm:text-4xl font-black text-blue-400 mb-2" id="total-scripts-count">50+</div>
+                <p class="text-gray-400 text-sm">سكربت حصري ومحدث</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-robloxDark border border-green-500/20">
+                <div class="text-3xl sm:text-4xl font-black text-green-400 mb-2">95%</div>
+                <p class="text-gray-400 text-sm">نسبة الأمان والاعتمادية</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-robloxDark border border-yellow-500/20">
+                <div class="text-3xl sm:text-4xl font-black text-yellow-400 mb-2">24/7</div>
+                <p class="text-gray-400 text-sm">حفظ دائم للأبد</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 w-full">
+        <div class="bg-red-950/30 border border-red-500/40 rounded-2xl p-6 text-center neon-glow-red">
+            <h4 class="text-red-400 font-black text-base mb-2 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation"></i> إخلاء المسؤولية الرسمي (Disclaimer)
+            </h4>
+            <p class="text-gray-300 font-mono text-xs sm:text-sm tracking-wider uppercase">
+                USE IT AT YOUR OWN RISK WE DON'T HANDLE ANY BANS AND ACCOUNT ISSUES
+            </p>
+            <p class="text-gray-400 text-xs mt-2">
+                نحن أصحاب موقع MAKZO SCRIPTS، والسكربتات المعروضة مجرد أدوات مساعدة ولا تحمل أي علاقة أو مسؤولية تجاه أي باند أو مشكلة قد تحدث لحسابك في لعبة روبلوكس.
+            </p>
+        </div>
+    </div>
+
+    <footer class="bg-robloxDark border-t border-red-900/40 py-8 text-center text-sm text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-4">
+            <p>جميع الحقوق محفوظة © 2026 - هلا فيك في MAKZO SCRIPTS | محاكيات وسكربتات روبلوكس</p>
+        </div>
+    </footer>
+
+    <!-- Script Details Modal -->
+    <div id="details-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-robloxCard border border-red-500/50 rounded-2xl p-6 sm:p-8 max-w-lg w-full text-right neon-glow-red relative">
+            <button onclick="closeDetailsModal()" class="absolute left-4 top-4 text-gray-400 hover:text-white w-8 h-8 rounded-lg bg-robloxDark flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <div>
+                    <span id="modal-script-date" class="px-2.5 py-0.5 rounded bg-blue-950 text-blue-300 text-xs font-bold border border-blue-500/30">تاريخ النزول</span>
+                    <h4 id="modal-script-title" class="text-xl font-bold text-white mt-1">عنوان السكربت</h4>
+                </div>
+            </div>
+            
+            <p id="modal-script-desc" class="text-gray-300 text-sm mb-4 leading-relaxed bg-robloxDark p-3 rounded-xl border border-red-900/40">تفاصيل السكربت...</p>
+
+            <div class="mb-6">
+                <label class="block text-xs font-bold text-gray-400 mb-2">كود السكربت (Script / Loadstring):</label>
+                <div class="relative">
+                    <textarea id="modal-script-code" readonly class="w-full h-32 bg-robloxDark text-red-400 text-xs p-3 rounded-xl border border-red-900/50 font-mono focus:outline-none resize-none"></textarea>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <button onclick="copyScriptCode()" class="flex-grow py-3 rounded-xl bg-gradient-to-r from-red-600 to-blue-600 hover:opacity-95 text-white font-bold transition flex items-center justify-center gap-2 neon-glow-red">
+                    <i class="fa-solid fa-copy"></i> نسخ كود السكربت للحافظة
+                </button>
+                <button onclick="closeDetailsModal()" class="px-5 py-3 rounded-xl bg-robloxDark hover:bg-red-950/50 text-gray-300 font-bold transition border border-red-500/30">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login / Auth Modal -->
+    <div id="auth-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-robloxCard border border-red-500/50 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center neon-glow-red relative">
+            <button onclick="closeAuthModal()" class="absolute left-4 top-4 text-gray-400 hover:text-white w-8 h-8 rounded-lg bg-robloxDark flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-12 h-12 rounded-full bg-red-600/20 text-red-500 mx-auto flex items-center justify-center text-2xl mb-4">
+                <i class="fa-solid fa-user-circle"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">تسجيل الدخول</h4>
+            <p class="text-gray-400 text-xs mb-6">سجل دخولك لتتمكن من إضافة سكربتك الخاص ونشره في المجتمع وحفظه للأبد.</p>
+            
+            <button onclick="simulateGoogleLogin()" class="w-full py-3 rounded-xl bg-white hover:bg-gray-100 text-gray-900 font-bold text-sm transition flex items-center justify-center gap-3 mb-4 shadow">
+                <i class="fa-brands fa-google text-red-600"></i> تسجيل الدخول باستخدام Google
+            </button>
+            <div id="logged-in-status" class="hidden text-xs text-green-400 font-bold mb-2">تم تسجيل الدخول بنجاح!</div>
+            <button onclick="closeAuthModal()" class="w-full py-2.5 rounded-xl bg-robloxDark hover:bg-red-950/50 text-gray-300 font-bold text-xs transition border border-red-500/30">إلغاء</button>
+        </div>
+    </div>
+
+    <!-- Add Script Modal -->
+    <div id="add-script-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-robloxCard border border-red-500/50 rounded-2xl p-6 sm:p-8 max-w-lg w-full text-right neon-glow-red relative">
+            <button onclick="closeAddScriptModal()" class="absolute left-4 top-4 text-gray-400 hover:text-white w-8 h-8 rounded-lg bg-robloxDark flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-plus-circle text-red-500"></i> إضافة سكربت جديد (حفظ دائم للأبد)
+            </h4>
+            <p class="text-gray-400 text-xs mb-6">أدخل اسم السكربت ووصفه وكود الـ Luau ليتم حفظه على جهازك للأبد مع تاريخ النزول الحالي.</p>
+            
+            <div class="space-y-4 mb-6">
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 mb-1">اسم السكربت أو اللعبة:</label>
+                    <input type="text" id="new-script-title" placeholder="مثال: سكربت طيران احترافي" class="w-full bg-robloxDark border border-red-900/50 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 mb-1">وصف موجز:</label>
+                    <input type="text" id="new-script-desc" placeholder="يشرح ما يفعله السكربت..." class="w-full bg-robloxDark border border-red-900/50 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 mb-1">كود الـ Luau (أو Loadstring):</label>
+                    <textarea id="new-script-code" placeholder="loadstring(game:HttpGet(...))()" class="w-full h-28 bg-robloxDark border border-red-900/50 rounded-xl p-3 text-xs text-red-400 font-mono focus:outline-none resize-none"></textarea>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="submitUserScript()" class="flex-grow py-3 rounded-xl bg-gradient-to-r from-red-600 to-blue-600 hover:opacity-95 text-white font-bold text-xs transition flex items-center justify-center gap-2 neon-glow-red">
+                    <i class="fa-solid fa-check"></i> نشر وحفظ للأبد
+                </button>
+                <button onclick="closeAddScriptModal()" class="px-5 py-3 rounded-xl bg-robloxDark hover:bg-red-950/50 text-gray-300 font-bold text-xs transition border border-red-500/30">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- General Message Modal -->
+    <div id="custom-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-robloxCard border border-red-500/50 rounded-2xl p-6 max-w-sm w-full text-center neon-glow-red">
+            <div class="w-12 h-12 rounded-full bg-red-600/20 text-red-500 mx-auto flex items-center justify-center text-2xl mb-4">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <h4 id="alert-title" class="text-xl font-bold mb-2">تنبيه النظام</h4>
+            <p id="alert-message" class="text-gray-300 text-sm mb-6">محتوى الرسالة هنا...</p>
+            <button onclick="closeCustomModal()" class="w-full py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold transition">حسناً</button>
+        </div>
+    </div>
+
+    <script>
+        // Master database including VR7, Hitbox, and popular Roblox scripts with release dates
+        const masterScriptsDatabase = [
+            { 
+                title: "أقوى سكربت عربي VR7", 
+                game: "جميع الألعاب (Universal)", 
+                rating: "5.0", 
+                downloads: "48.9k", 
+                releaseDate: "15 يناير 2026",
+                desc: "السكربت العربي الأقوى المخصص لتعديل واجهات التحكم، الميزات الشاملة، وأدوات المساعدة المتقدمة في مختلف الألعاب.", 
+                code: 'loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-VR7-45290"))()' 
+            },
+            { 
+                title: "سكربت هيت بوكس يضبط على اي لعبه", 
+                game: "جميع الألعاب العامة (Universal)", 
+                rating: "5.0", 
+                downloads: "34.2k", 
+                releaseDate: "02 فبراير 2026",
+                desc: "سكربت هيت بوكس احترافي يعمل على تكبير حجم الهيت بوكس (HeadSize) وإضافة الـ ESP الملون وتتبع الأعداء في أي لعبة روبلوكس.", 
+                code: `_G.HeadSize = 20
+_G.Disabled = true
+
+local Players = game:GetService('Players')
+local RunService = game:GetService('RunService')
+local LocalPlayer = Players.LocalPlayer
+local MobsFolder = workspace:FindFirstChild("Mobs")
+
+local function applyPropertiesToPart(part)
+    if part then
+        part.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+        part.Transparency = 0.7
+        part.BrickColor = BrickColor.new("Really blue")
+        part.Material = Enum.Material.Neon
+        part.CanCollide = false
+    end
+end
+
+local function applyHighlight(model, color)
+    if not model:FindFirstChild("HighlightESP") then
+        local highlight = Instance.new("Highlight")
+        highlight.Name = "HighlightESP"
+        highlight.FillColor = color
+        highlight.OutlineColor = Color3.new(0, 0, 0)
+        highlight.FillTransparency = 0.3
+        highlight.OutlineTransparency = 0
+        highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+        highlight.Parent = model
+        highlight.Adornee = model
+    end
+end
+
+RunService.RenderStepped:Connect(function()
+    if _G.Disabled then
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                pcall(function()
+                    applyPropertiesToPart(player.Character.HumanoidRootPart)
+                    applyHighlight(player.Character, Color3.fromRGB(0, 170, 255))
+                end)
+            end
+        end
+
+        if MobsFolder then
+            for _, mob in ipairs(MobsFolder:GetChildren()) do
+                if mob:IsA("Model") and mob:FindFirstChild("HumanoidRootPart") then
+                    pcall(function()
+                        applyPropertiesToPart(mob.HumanoidRootPart)
+                        applyHighlight(mob, Color3.fromRGB(255, 0, 0))
+                    end)
+                end
+            end
+        end
+    end
+end)` 
+            },
+            { title: "Blox Fruits (Redz Hub VIP)", game: "Blox Fruits", rating: "4.9", downloads: "24.5k", releaseDate: "10 فبراير 2026", desc: "أتو فارم كامل، تيليبورت السيرفرات، قتل الكايو هو, وجمع الفواكه تلقائياً.", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/main/Source.lua"))()' },
+            { title: "Fisch (Auto Fish & Quest Hub)", game: "Fisch", rating: "5.0", downloads: "19.8k", releaseDate: "20 فبراير 2026", desc: "سكربت صيد أسماك Fisch يعمل تلقائياً 100% مع تحديد نوع الأسماك النادرة.", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/dxb-project/fisch/main/loader.lua"))()' },
+            { title: "Blade Ball (Astra Hub Pro)", game: "Blade Ball", rating: "4.8", downloads: "22.1k", releaseDate: "01 مارس 2026", desc: "بارري دقيق 100% وتفادي الكرات السريعة متوافق مع Delta و Solara.", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/AstraRBX/AstraHub/main/BladeBall.lua"))()' },
+            { title: "Pet Simulator 99 (Speed Hub)", game: "Pet Simulator 99", rating: "4.9", downloads: "28.4k", releaseDate: "12 مارس 2026", desc: "أتو فارم، فتح بيض تلقائي، وبيع الحيوانات غير المرغوبة بلمح البصر.", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/ahmadsgamer2/SpeedHubX/main/Main.lua"))()' },
+            { title: "BedWars (Vape V4 Script)", game: "BedWars", rating: "4.9", downloads: "42.0k", releaseDate: "25 مارس 2026", desc: "أشهر سكربت بيد وورز للكمبيوتر والجوال مع كايلا أورا وفيولايت.", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()' }
+        ];
+
+        // Load Community Scripts from LocalStorage for eternal persistence
+        let communityScripts = JSON.parse(localStorage.getItem('makzo_community_scripts')) || [
+            { title: "سكربت السرعة الخارقة (Member)", game: "Universal", rating: "4.7", downloads: "410", releaseDate: "01 يناير 2026", desc: "مضاف بواسطة عضو في المجتمع لتسريع حركة اللاعب.", code: 'print("Speed script active!")' }
+        ];
+
+        // Save to LocalStorage helper
+        function saveCommunityScripts() {
+            localStorage.setItem('makzo_community_scripts', JSON.stringify(communityScripts));
+        }
+
+        // Render main scripts grid based on search query
+        function renderScripts(query = '') {
+            const grid = document.getElementById('scripts-grid');
+            grid.innerHTML = '';
+
+            const filtered = masterScriptsDatabase.filter(item => {
+                const q = query.toLowerCase().trim();
+                if (!q) return true;
+                return item.title.toLowerCase().includes(q) || 
+                       item.game.toLowerCase().includes(q) || 
+                       item.desc.toLowerCase().includes(q);
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center bg-robloxCard rounded-2xl border border-red-500/35">
+                        <div class="w-14 h-14 rounded-2xl bg-red-600/20 text-red-500 mx-auto flex items-center justify-center text-2xl mb-3">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1">لا يوجد أي سكربت عن هذا الاسم ("${query}")</h4>
+                        <p class="text-gray-400 text-xs mb-4">جرب البحث بكلمات أخرى أو أضف سكربتك الخاص بنفسك في قسم المجتمع!</p>
+                        <button onclick="setSearchQuery('')" class="px-5 py-2 rounded-xl bg-red-600 text-white font-bold text-xs">عرض كافة السكربتات</button>
+                    </div>
+                `;
+            } else {
+                filtered.forEach(script => {
+                    const card = document.createElement('div');
+                    card.className = 'script-card rounded-2xl bg-robloxCard border border-red-900/50 p-6 flex flex-col justify-between transition hover:border-red-500/70 hover:bg-robloxCardHover group';
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="px-3 py-1 rounded-lg bg-red-950 text-red-300 border border-red-500/30 text-xs font-bold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-gamepad"></i> ${script.game}
+                                </span>
+                                <div class="flex items-center gap-1.5 bg-yellow-500/10 border border-yellow-500/30 px-2.5 py-1 rounded-full text-yellow-400 text-xs font-bold">
+                                    <i class="fa-solid fa-star"></i> ${script.rating}
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-red-400 transition">${script.title}</h4>
+                            <p class="text-gray-400 text-sm mb-4 leading-relaxed">${script.desc}</p>
+                            <p class="text-xs text-gray-500 mb-6 flex items-center gap-1.5"><i class="fa-regular fa-calendar text-red-400"></i> تاريخ النزول: ${script.releaseDate}</p>
+                        </div>
+                        <div class="pt-4 border-t border-red-900/30 flex items-center justify-between">
+                            <span class="text-xs text-green-400 font-bold"><i class="fa-solid fa-download ml-1"></i> ${script.downloads} نسخ</span>
+                            <button onclick="openScriptDetails(${encodeURIComponent(JSON.stringify(script.title))}, ${encodeURIComponent(JSON.stringify(script.code))}, ${encodeURIComponent(JSON.stringify(script.desc))}, ${encodeURIComponent(JSON.stringify(script.releaseDate))})" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm transition flex items-center gap-2 neon-glow-red">
+                                <i class="fa-solid fa-code"></i> عرض ونسخ الكود
+                            </button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+
+            // Also render community scripts
+            renderCommunityScripts(query);
+            updateTotalCount();
+        }
+
+        // Render Community Scripts
+        function renderCommunityScripts(query = '') {
+            const grid = document.getElementById('community-scripts-grid');
+            grid.innerHTML = '';
+
+            const filtered = communityScripts.filter(item => {
+                const q = query.toLowerCase().trim();
+                if (!q) return true;
+                return item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-10 text-center bg-robloxCard rounded-2xl border border-blue-500/30">
+                        <p class="text-gray-400 text-sm">لا يوجد أي سكربت مضاف من قِبل المجتمع بهذا الاسم.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(script => {
+                const card = document.createElement('div');
+                card.className = 'script-card rounded-2xl bg-robloxCard border border-blue-900/50 p-6 flex flex-col justify-between transition hover:border-blue-500/70 group';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-lg bg-blue-950 text-blue-300 border border-blue-500/30 text-xs font-bold">
+                                <i class="fa-solid fa-user"></i> سكربت عضو محفوظ للأبد
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition">${script.title}</h4>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">${script.desc}</p>
+                        <p class="text-xs text-gray-500 mb-6 flex items-center gap-1.5"><i class="fa-regular fa-calendar text-blue-400"></i> تاريخ النزول: ${script.releaseDate}</p>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex items-center justify-between">
+                        <span class="text-xs text-gray-400">موافق ومحفوظ</span>
+                        <button onclick="openScriptDetails(${encodeURIComponent(JSON.stringify(script.title))}, ${encodeURIComponent(JSON.stringify(script.code))}, ${encodeURIComponent(JSON.stringify(script.desc))}, ${encodeURIComponent(JSON.stringify(script.releaseDate))})" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-code"></i> عرض ونسخ الكود
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Update total script count in stats
+        function updateTotalCount() {
+            const total = masterScriptsDatabase.length + communityScripts.length;
+            document.getElementById('total-scripts-count').innerText = total + "+";
+        }
+
+        // Live input search trigger
+        function filterScripts() {
+            const query = document.getElementById('live-search-input').value;
+            renderScripts(query);
+        }
+
+        // Quick tag search setter
+        function setSearchQuery(query) {
+            document.getElementById('live-search-input').value = query;
+            renderScripts(query);
+            document.getElementById('scripts').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let currentCodeToCopy = '';
+
+        // Script Details Modal Controls
+        function openScriptDetails(title, code, desc, releaseDate) {
+            currentCodeToCopy = code;
+            document.getElementById('modal-script-title').innerText = title;
+            document.getElementById('modal-script-desc').innerText = desc;
+            document.getElementById('modal-script-code').value = code;
+            document.getElementById('modal-script-date').innerText = 'تاريخ النزول: ' + releaseDate;
+            document.getElementById('details-modal').classList.remove('hidden');
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('details-modal').classList.add('hidden');
+        }
+
+        // Copy Script Code safely with required warning message
+        function copyScriptCode() {
+            const textarea = document.getElementById('modal-script-code');
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                closeDetailsModal();
+                openCustomModal('تحذير أمني هام!', 'تحذير انت تستخدم سكربت شخص غير موثوق من موقعنا يرجى اتخاذ كل شي على خطورتك انت. (تم نسخ الكود بنجاح)');
+            } catch (err) {
+                openCustomModal('تنبيه', 'يرجى تحديد الكود ونسخه يدوياً.');
+            }
+        }
+
+        // Auth Modal Controls
+        function openAuthModal() {
+            document.getElementById('auth-modal').classList.remove('hidden');
+        }
+        function closeAuthModal() {
+            document.getElementById('auth-modal').classList.add('hidden');
+        }
+        function simulateGoogleLogin() {
+            document.getElementById('logged-in-status').classList.remove('hidden');
+            setTimeout(() => {
+                closeAuthModal();
+                openCustomModal('مرحباً بك!', 'تم تسجيل الدخول بنجاح عبر حساب Google. يمكنك الآن الضغط على "ضيف سكربتك الخاص" ونشره ليحفظ للأبد.');
+            }, 800);
+        }
+
+        // Add Script Modal Controls
+        function openAddScriptModal() {
+            document.getElementById('add-script-modal').classList.remove('hidden');
+        }
+        function closeAddScriptModal() {
+            document.getElementById('add-script-modal').classList.add('hidden');
+        }
+
+        // Validate Luau format and submit user script
+        function submitUserScript() {
+            const title = document.getElementById('new-script-title').value.trim();
+            const desc = document.getElementById('new-script-desc').value.trim();
+            const code = document.getElementById('new-script-code').value.trim();
+
+            if (!title || !desc || !code) {
+                openCustomModal('تنبيه', 'يرجى تعبئة جميع الحقول المطلوبة!');
+                return;
+            }
+
+            // Luau validation check: checks for typical Roblox Luau syntax or loadstring or Lua keywords
+            const isLuauValid = code.includes('loadstring') || code.includes('game:') || code.includes('local') || code.includes('function') || code.includes('print');
+
+            if (!isLuauValid) {
+                openCustomModal('خطأ في صيغة السكربت', 'الكود المدخل لا يتوافق مع صيغة لغة Luau الخاصة بروبلوكس! يرجى إدخال كود روبلوكس صالح.');
+                return;
+            }
+
+            // Get current formatted date in Arabic locale
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('ar-SA', options);
+
+            // Push to community array and persist
+            communityScripts.unshift({
+                title: title,
+                game: "مخصص (Community)",
+                rating: "5.0",
+                downloads: "1",
+                releaseDate: formattedDate,
+                desc: desc,
+                code: code
+            });
+
+            saveCommunityScripts();
+            closeAddScriptModal();
+            renderScripts(document.getElementById('live-search-input').value);
+            openCustomModal('تم النشر والحفظ للأبد!', 'تم إضافة سكربتك بنجاح، وتثبيته في المتصفح للأبد مع تاريخ النزول.');
+            
+            // Reset inputs
+            document.getElementById('new-script-title').value = '';
+            document.getElementById('new-script-desc').value = '';
+            document.getElementById('new-script-code').value = '';
+        }
+
+        // General Modal Controls
+        function openCustomModal(title, message) {
+            document.getElementById('alert-title').innerText = title;
+            document.getElementById('alert-message').innerText = message;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeCustomModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        // Initial render on page load
+        window.onload = function() {
+            renderScripts('');
+        };
+    </script>
+</body>
+</html>
